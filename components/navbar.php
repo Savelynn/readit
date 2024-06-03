@@ -1,4 +1,4 @@
-<nav class="p-2 flex md:w-[60%] w-full justify-end items-center bg-cyan-700 left-1/2 -translate-x-1/2 fixed md:mt-5 md:rounded-full">
+<nav class="p-2 flex md:w-[60%] w-full justify-end items-center bg-gray-200 left-1/2 -translate-x-1/2 fixed md:mt-5 md:rounded-full z-50">
     <div class="relative md:inline-block text-left hidden">
         <div class="rounded-[50%] overflow-hidden h-12 w-12 relative border border-black flex justify-center content-center     ">
             <button type="button" class="" onclick="menuDropdown()" id="menu-button" aria-expanded="true" aria-haspopup="true">

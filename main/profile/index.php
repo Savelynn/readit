@@ -21,16 +21,19 @@ $user = $result->fetch_assoc();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Settings</title>
+    <title>Login Area</title>
     <link rel="stylesheet" href="/output.css">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 
-<body class="bg-gray-100">
+<body class="w-full h-screen bg-slate-900">
 
+    <?php
+    $condir = "/components/navbar.php";
+    include($_SERVER['DOCUMENT_ROOT'] . $condir);
+    ?>
 
-
-    <div class="max-w-md mx-auto mt-10 bg-white p-6 rounded-lg shadow-lg">
+    <div class="absolute w-[448px] max-w-[90%] bg-white p-6 rounded-lg shadow-lg left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         <h2 class="text-2xl font-bold mb-4"><?php echo $user['username']; ?> Profile</h2>
         <form action="" method="post">
             <div class="flex justify-center mb-4">
@@ -53,9 +56,17 @@ $user = $result->fetch_assoc();
             </div>
             <div class="mb-4 h-full relative">
                 <input type="checkbox" name="changePass" id=""> Change Password?
-                <div class="h-full relative">
-                    <input type="password" name="password" placeholder="New Password" class="w-full p-2 border border-gray-300 rounded-lg" id="password">
-                    <button class="focus:outline-none absolute bottom-1/2 translate-y-1/2 -translate-x-6" type="button" id="togglePassword"><i class="ph ph-eye-closed" id="icon"></i></button>
+                <div class="h-full relative mb-4">
+                    <input type="password" name="password0" placeholder="Old Password" class="w-full p-2 border border-gray-300 rounded-lg" id="password0">
+                    <button class="focus:outline-none absolute bottom-1/2 translate-y-1/2 -translate-x-6 mb-" type="button" onclick="showPass('password0','icon0')"><i class="ph ph-eye-closed" id="icon0"></i></button>
+                </div>
+                <div class="h-full relative mb-4">
+                    <input type="password" name="password1" placeholder="New Password" class="w-full p-2 border border-gray-300 rounded-lg" id="password1">
+                    <button class="focus:outline-none absolute bottom-1/2 translate-y-1/2 -translate-x-6 mb-" type="button" onclick="showPass('password1','icon1')"><i class="ph ph-eye-closed" id="icon1"></i></button>
+                </div>
+                <div class="h-full relative mb-4">
+                    <input type="password" name="password2" placeholder="Confirm New Password" class="w-full p-2 border border-gray-300 rounded-lg" id="password2">
+                    <button class="focus:outline-none absolute bottom-1/2 translate-y-1/2 -translate-x-6" type="button" onclick="showPass('password2','icon2')"><i class="ph ph-eye-closed" id="icon2"></i></button>
                 </div>
             </div>
             <button type="submit" name="update" class="w-full bg-blue-500 text-white p-2 rounded-lg">Update Profile</button>
@@ -72,20 +83,44 @@ $user = $result->fetch_assoc();
         $id = $_SESSION['id'];
 
         if (isset($_POST['changePass'])) {
-            $password = $_POST['password'];
-            $password = mysqli_real_escape_string($connect, $_POST['password']);
-            $password = password_hash($password, PASSWORD_DEFAULT);
-            $update = "UPDATE user SET nick='$nick', age='$age', telp='$telp', password='$password' WHERE id='$id'";
-            mysqli_query($connect, $update);
-            echo "<script>
-                  alert('ubah data berhasil');
-                  window.location.href = '';
-                  </script>";
+            $oldPass = $_POST['password0'];
+            $password1 = $_POST['password1'];
+            $password2 = $_POST['password2'];
+
+            if ($password1 === $password2) {
+
+                $callPass = "SELECT password FROM user WHERE id='$id'";
+                $result = mysqli_query($connect, $callPass);
+                $pass = $result->fetch_assoc();
+
+
+                if (password_verify($oldPass, $pass['password'])) {
+
+                    $password = mysqli_real_escape_string($connect, $_POST['password1']);
+                    $password = password_hash($password, PASSWORD_DEFAULT);
+                    $update = "UPDATE user SET nick='$nick', age='$age', telp='$telp', password='$password' WHERE id='$id'";
+                    mysqli_query($connect, $update);
+                    echo "<script>
+                    alert('data successfully updated! pw');
+                    window.location.href = '';
+                    </script>";
+                } else {
+                    echo "<script>
+                    alert('Wrong Old Password!')
+                    window.location.href = '';
+                    </script>";
+                }
+            } else {
+                echo "<script>
+                alert('Confirm Password Not Match')
+                window.location.href = '';
+                </script>";
+            }
         } else {
             $update = "UPDATE user SET nick='$nick', age='$age', telp='$telp' WHERE id='$id'";
             mysqli_query($connect, $update);
             echo "<script>
-                  alert('ubah data berhasil');
+                  alert('data successfully updated! nopw');
                   window.location.href = '';
                   </script>";
         }
@@ -95,22 +130,20 @@ $user = $result->fetch_assoc();
     ?>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const passIn = document.getElementById('password');
-            const btn = document.getElementById('togglePassword');
-            const icon = document.getElementById('icon')
-            btn.addEventListener('click', function() {
-                if (passIn.getAttribute('type') === 'password') {
-                    passIn.setAttribute('type', 'text');
-                    icon.classList.remove('ph-eye-closed');
-                    icon.classList.add('ph-eye');
-                } else {
-                    passIn.setAttribute('type', 'password');
-                    icon.classList.remove('ph-eye');
-                    icon.classList.add('ph-eye-closed');
-                }
-            });
-        });
+        function showPass(pass, icon) {
+            var passIn = document.getElementById(pass);
+            var icon = document.getElementById(icon);
+
+            if (passIn.getAttribute('type') === 'password') {
+                passIn.setAttribute('type', 'text');
+                icon.classList.remove('ph-eye-closed');
+                icon.classList.add('ph-eye');
+            } else {
+                passIn.setAttribute('type', 'password');
+                icon.classList.remove('ph-eye');
+                icon.classList.add('ph-eye-closed');
+            }
+        }
     </script>
 
 </body>

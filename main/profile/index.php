@@ -55,17 +55,17 @@ $user = $result->fetch_assoc();
                 <input type="tel" name="telp" value="<?php echo $user['telp']; ?>" placeholder="<?php echo $user['telp']; ?>" class="w-full p-2 border border-gray-300 rounded-lg" required>
             </div>
             <div class="mb-4 h-full relative">
-                <input type="checkbox" name="changePass" id=""> Change Password?
+                <input type="checkbox" name="changePass" id="passTog"> Change Password?
                 <div class="h-full relative mb-4">
-                    <input type="password" name="password0" placeholder="Old Password" class="w-full p-2 border border-gray-300 rounded-lg" id="password0" required>
+                    <input type="password" name="password0" placeholder="Old Password" class="w-full p-2 border border-gray-300 rounded-lg" id="password0">
                     <button class="focus:outline-none absolute bottom-1/2 translate-y-1/2 -translate-x-6 mb-" type="button" onclick="showPass('password0','icon0')"><i class="ph ph-eye-closed" id="icon0"></i></button>
                 </div>
                 <div class="h-full relative mb-4">
-                    <input type="password" name="password1" placeholder="New Password" class="w-full p-2 border border-gray-300 rounded-lg" id="password1" required>
+                    <input type="password" name="password1" placeholder="New Password" class="w-full p-2 border border-gray-300 rounded-lg" id="password1">
                     <button class="focus:outline-none absolute bottom-1/2 translate-y-1/2 -translate-x-6 mb-" type="button" onclick="showPass('password1','icon1')"><i class="ph ph-eye-closed" id="icon1"></i></button>
                 </div>
                 <div class="h-full relative mb-4">
-                    <input type="password" name="password2" placeholder="Confirm New Password" class="w-full p-2 border border-gray-300 rounded-lg" id="password2" required>
+                    <input type="password" name="password2" placeholder="Confirm New Password" class="w-full p-2 border border-gray-300 rounded-lg" id="password2">
                     <button class="focus:outline-none absolute bottom-1/2 translate-y-1/2 -translate-x-6" type="button" onclick="showPass('password2','icon2')"><i class="ph ph-eye-closed" id="icon2"></i></button>
                 </div>
             </div>
@@ -130,6 +130,20 @@ $user = $result->fetch_assoc();
     ?>
 
     <script>
+        document.getElementById('passTog').addEventListener('click', function() {
+            let isPass = document.getElementById('passTog').checked;
+            if (isPass === true) {
+                document.getElementById('password0').setAttribute('required', '');
+                document.getElementById('password1').setAttribute('required', '');
+                document.getElementById('password2').setAttribute('required', '');
+            } else {
+                document.getElementById('password0').removeAttribute('required');
+                document.getElementById('password1').removeAttribute('required');
+                document.getElementById('password2').removeAttribute('required');
+            }
+        })
+
+
         function showPass(pass, icon) {
             var passIn = document.getElementById(pass);
             var icon = document.getElementById(icon);

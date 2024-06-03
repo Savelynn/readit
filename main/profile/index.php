@@ -46,26 +46,26 @@ $user = $result->fetch_assoc();
                 <input type="file" name="profile_picture" class="block w-full text-sm text-gray-900 bg-gray-50 rounded-e-lg border border-gray-300 cursor-pointer focus:outline-none">
             </div>
             <div class="mb-4">
-                <input type="text" name="nick" value="<?php echo $user['nick']; ?>" placeholder="<?php echo $user['nick'] ? $user['nick'] : 'Insert Nickname'; ?>" class="w-full p-2 border border-gray-300 rounded-lg">
+                <input type="text" name="nick" value="<?php echo $user['nick']; ?>" placeholder="<?php echo $user['nick'] ? $user['nick'] : 'Insert Nickname'; ?>" class="w-full p-2 border border-gray-300 rounded-lg" required>
             </div>
             <div class="mb-4">
-                <input type="number" name="age" value="<?php echo $user['age']; ?>" placeholder="<?php echo $user['age']; ?>" class="w-full p-2 border border-gray-300 rounded-lg">
+                <input type="number" name="age" value="<?php echo $user['age']; ?>" placeholder="<?php echo $user['age']; ?>" class="w-full p-2 border border-gray-300 rounded-lg" required>
             </div>
             <div class="mb-4">
-                <input type="tel" name="telp" value="<?php echo $user['telp']; ?>" placeholder="<?php echo $user['telp']; ?>" class="w-full p-2 border border-gray-300 rounded-lg">
+                <input type="tel" name="telp" value="<?php echo $user['telp']; ?>" placeholder="<?php echo $user['telp']; ?>" class="w-full p-2 border border-gray-300 rounded-lg" required>
             </div>
             <div class="mb-4 h-full relative">
                 <input type="checkbox" name="changePass" id=""> Change Password?
                 <div class="h-full relative mb-4">
-                    <input type="password" name="password0" placeholder="Old Password" class="w-full p-2 border border-gray-300 rounded-lg" id="password0">
+                    <input type="password" name="password0" placeholder="Old Password" class="w-full p-2 border border-gray-300 rounded-lg" id="password0" required>
                     <button class="focus:outline-none absolute bottom-1/2 translate-y-1/2 -translate-x-6 mb-" type="button" onclick="showPass('password0','icon0')"><i class="ph ph-eye-closed" id="icon0"></i></button>
                 </div>
                 <div class="h-full relative mb-4">
-                    <input type="password" name="password1" placeholder="New Password" class="w-full p-2 border border-gray-300 rounded-lg" id="password1">
+                    <input type="password" name="password1" placeholder="New Password" class="w-full p-2 border border-gray-300 rounded-lg" id="password1" required>
                     <button class="focus:outline-none absolute bottom-1/2 translate-y-1/2 -translate-x-6 mb-" type="button" onclick="showPass('password1','icon1')"><i class="ph ph-eye-closed" id="icon1"></i></button>
                 </div>
                 <div class="h-full relative mb-4">
-                    <input type="password" name="password2" placeholder="Confirm New Password" class="w-full p-2 border border-gray-300 rounded-lg" id="password2">
+                    <input type="password" name="password2" placeholder="Confirm New Password" class="w-full p-2 border border-gray-300 rounded-lg" id="password2" required>
                     <button class="focus:outline-none absolute bottom-1/2 translate-y-1/2 -translate-x-6" type="button" onclick="showPass('password2','icon2')"><i class="ph ph-eye-closed" id="icon2"></i></button>
                 </div>
             </div>

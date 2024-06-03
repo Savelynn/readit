@@ -23,7 +23,7 @@
     <div class="max-w-[90%] w-[450px] h-[550px] rounded-md bg-cyan-950 bg-opacity-[98%] py-8 px-8 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style="max-width: 90%;">
         <div class="h-full flex-col">
             <div class="text-center mb-10">
-                <h1 class="text-4xl font-bold opacity-100 text-white">LOIN</h1>
+                <h1 class="text-4xl font-bold opacity-100 text-white">LOGIN</h1>
             </div>
             <div class="flex-col h-96">
                 <form method="post">

@@ -15,6 +15,7 @@ if (!isset($_SESSION['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
     <link rel="stylesheet" href="/output.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 
 <body class="w-full">
@@ -23,13 +24,6 @@ if (!isset($_SESSION['id'])) {
     $condir = "/components/navbar.php";
     include($_SERVER['DOCUMENT_ROOT'] . $condir);
     ?>
-
-    <script>
-        const menuDropdown = () => {
-            const navDrop = document.getElementById('dropdown');
-            navDrop.classList.toggle('hidden')
-        }
-    </script>
 
 </body>
 

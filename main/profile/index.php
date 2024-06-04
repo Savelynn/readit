@@ -23,7 +23,6 @@ $user = $result->fetch_assoc();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Area</title>
     <link rel="stylesheet" href="/output.css">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 
 <body class="w-full h-screen bg-slate-900">

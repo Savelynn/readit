@@ -10,3 +10,12 @@ function uploadImage () {
     imgView.textContent = "";
     imgView.style.border = 0;
 }
+
+dropArea.addEventListener("dragover", function(e) {
+    e.preventDefault();
+})
+dropArea.addEventListener("drop", function(e) {
+    e.preventDefault();
+    inputFile.files = e.dataTransfer.files;
+    uploadImage();
+})

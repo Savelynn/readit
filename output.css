@@ -1957,10 +1957,6 @@ video {
   border-width: 1px !important;
 }
 
-.border-2 {
-  border-width: 2px !important;
-}
-
 .border-x {
   border-left-width: 1px !important;
   border-right-width: 1px !important;
@@ -2158,6 +2154,10 @@ video {
 .bg-clip-text {
   -webkit-background-clip: text !important;
           background-clip: text !important;
+}
+
+.bg-center {
+  background-position: center !important;
 }
 
 .bg-repeat {

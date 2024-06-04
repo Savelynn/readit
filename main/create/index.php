@@ -20,7 +20,7 @@
             <div class="my-6 flex w-full justify-center items-center">
                 <label for="input-file" id="drop-area" class="w-[500px] h-[300px] p-[30px] bg-white rounded-[20px] text-center">
                     <input type="file" accept="image/*" name="cover" id="input-file" hidden>
-                    <div id="img-view" class="bg-cover w-full h-full rounded-[20px] border-violet-400 bg-gray-100" style="border: dashed 2px;">
+                    <div id="img-view" class="bg-cover bg-center w-full h-full rounded-[20px] border-violet-400 bg-gray-100" style="border: dashed 2px;">
                         <img src="/assets/create/uploadimg.png" class="mx-auto w-[100px] mt-[25px]">
                         <p>Drag and drop or click here<br>to upload cover</p>
                         <span class="block text-[12px] text-gray-400 mt-[15px]">Upload any images from desktop</span>

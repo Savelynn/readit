@@ -26,7 +26,9 @@ if (!isset($_SESSION['id'])) {
     include($_SERVER['DOCUMENT_ROOT'] . $condir);
     ?>
 
-
+    <section class="h-screen w-full">
+    
+    </section>
 
     <?php
     $condir = "/components/footer.php";

@@ -74,6 +74,11 @@ $user = $result->fetch_assoc();
     </div>
 
     <?php
+    $condir = "/components/footer.php";
+    include($_SERVER['DOCUMENT_ROOT'] . $condir);
+    ?>
+
+    <?php
 
     if (isset($_POST['update'])) {
 

@@ -26,6 +26,13 @@ if (!isset($_SESSION['id'])) {
     include($_SERVER['DOCUMENT_ROOT'] . $condir);
     ?>
 
+
+
+    <?php
+    $condir = "/components/footer.php";
+    include($_SERVER['DOCUMENT_ROOT'] . $condir);
+    ?>
+
 </body>
 
 </html>

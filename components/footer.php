@@ -1,5 +1,3 @@
-<footer class="w-full bg-white h-10">
-    <div class="m-auto">
-        <p>Readit copyright &copy; 2024</p>
-    </div>
+<footer class="w-full bg-white bottom-0 text-center" style="line-height: 40px;">
+    <p>&copy; 2023 ReadIt. All rights reserved.</p>
 </footer>

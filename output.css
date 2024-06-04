@@ -2954,11 +2954,6 @@ video {
     top: 1rem !important;
   }
 
-  .md\:mx-4 {
-    margin-left: 1rem !important;
-    margin-right: 1rem !important;
-  }
-
   .md\:inline-block {
     display: inline-block !important;
   }
@@ -2978,6 +2973,11 @@ video {
 }
 
 @media (min-width: 1024px) {
+  .lg\:mx-4 {
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+  }
+
   .lg\:mx-5 {
     margin-left: 1.25rem !important;
     margin-right: 1.25rem !important;

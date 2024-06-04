@@ -1,5 +1,5 @@
 <nav class="p-2 flex md:w-[60%] w-full justify-between items-center bg-gray-200 md:left-1/2 md:-translate-x-1/2 fixed md:rounded-full z-50 md:top-4 top-0 drop-shadow-2xl">
-    <div class="md:mx-4 mx-1 p-2">
+    <div class="lg:mx-4 mx-1 p-2">
         <a href="/main" class="p-2 text-lg text-black lg:mx-5 mx-1 text-center"><i class="ph ph-house"></i> Home</a>
         <a href="" class="p-2 text-lg text-black lg:mx-5 mx-1"><i class="ph ph-trend-up"></i> Trending</a>
         <a href="" class="p-2 text-lg text-black lg:mx-5 mx-1"><i class="ph ph-network"></i> Category</a>

@@ -23,6 +23,7 @@ $user = $result->fetch_assoc();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Area</title>
     <link rel="stylesheet" href="/output.css">
+    <link rel="stylesheet" href="/input.css">
 </head>
 
 <body class="w-full h-screen bg-slate-900">
@@ -32,7 +33,7 @@ $user = $result->fetch_assoc();
     include($_SERVER['DOCUMENT_ROOT'] . $condir);
     ?>
 
-    <div class="absolute w-[448px] max-w-[90%] bg-white p-6 rounded-lg shadow-lg left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+    <div class="absolute w-[448px] max-w-[90%] bg-white p-6 rounded-lg shadow-lg left-1/2 -translate-x-1/2 mt-28">
         <h2 class="text-2xl font-bold mb-4"><?php echo $user['username']; ?> Profile</h2>
         <form action="" method="post">
             <div class="flex justify-center mb-4">

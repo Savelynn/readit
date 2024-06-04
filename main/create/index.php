@@ -14,16 +14,17 @@ if (!isset($_SESSION['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/output.css">
+    <link rel="stylesheet" href="/input.css">
 </head>
 
-<body class="bg-gradient-to-b from-purple-200 to-violet-400 bg-cover bg-no-repeat h-screen">
+<body class="bg-gradient-to-b from-purple-200 to-violet-400 bg-cover bg-no-repeat h-auto">
 
     <?php
     $condir = "/components/navbar.php";
     include($_SERVER['DOCUMENT_ROOT'] . $condir);
     ?>
 
-    <section class="mx-auto mt-28 w-[1536px] max-w-[95%]">
+    <section class="mx-auto mt-28 w-[1536px] max-w-[95%] mb-10">
         <form action="">
             <div class="my-6 flex w-full justify-center items-center">
                 <label for="input-file" id="drop-area" class="w-[500px] h-[300px] p-[30px] bg-white rounded-[20px] text-center">
@@ -35,15 +36,20 @@ if (!isset($_SESSION['id'])) {
                     </div>
                 </label>
             </div>
-            <div class="my-6">
-                <input type="text" name="title" id="title" class="py-4 px-4 bg-white rounded-md w-full text-xl font-bold" placeholder="Input title" required>
+            <div class="mt-6">
+                <input type="text" name="title" id="title" class="py-4 px-4 bg-white rounded-t-md w-full text-xl font-bold" placeholder="Input title" required>
             </div>
-            <div class="my-6">
+            <div class="mb-6 -mt-2">
                 <textarea name="" id="" placeholder="Write Content Here!" required></textarea>
             </div>
-
+            <div class="w-full flex justify-end">
+                <button class="px-4 py-[6px] bg-indigo-600 ms-3 rounded-full w-[100px] text-white font-medium text-center drop-shadow-2xl">Reset</button>
+                <button class="px-4 py-[6px] bg-indigo-600 ms-3 rounded-full w-[100px] text-white font-medium text-center drop-shadow-2xl">Submit</button>
+            </div>
         </form>
     </section>
+
+
 
     <!-- Place the first <script> tag in your HTML's <head> -->
     <script src="https://cdn.tiny.cloud/1/spd80pirgpeyo3i3qj7xz57wumobzu0be6t66vjlrsqwi364/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
@@ -65,10 +71,13 @@ if (!isset($_SESSION['id'])) {
                     title: 'Email'
                 },
             ],
-            ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
         });
     </script>
     <script src="script.js"></script>
+    <?php
+    $condir = "/components/footer.php";
+    include($_SERVER['DOCUMENT_ROOT'] . $condir);
+    ?>
 </body>
 
 </html>

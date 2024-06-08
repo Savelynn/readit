@@ -24,7 +24,7 @@ if (!isset($_SESSION['id'])) {
     include($_SERVER['DOCUMENT_ROOT'] . $condir);
     ?>
 
-    <div class="bg-gradient-to-b from-purple-200 to-violet-400 bg-cover bg-no-repeat h-auto p-5">
+    <div class="bg-gradient-to-b from-purple-200 to-violet-400 bg-cover bg-no-repeat p-5 h-screen">
         <section class="mx-auto w-[1536px] max-w-[95%] p-2 mt-28 mb-10">
             <form action="" method="post" enctype="multipart/form-data" class="p-1">
                 <div class="my-6 flex w-full justify-center items-center">
@@ -50,10 +50,6 @@ if (!isset($_SESSION['id'])) {
             </form>
         </section>
     </div>
-    <?php
-    $condir = "/components/footer.php";
-    include($_SERVER['DOCUMENT_ROOT'] . $condir);
-    ?>
 
     <!-- Place the first <script> tag in your HTML's <head> -->
     <script src="https://cdn.tiny.cloud/1/spd80pirgpeyo3i3qj7xz57wumobzu0be6t66vjlrsqwi364/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>

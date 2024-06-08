@@ -17,14 +17,22 @@ if (!isset($_SESSION['id'])) {
     <link rel="stylesheet" href="/input.css">
 </head>
 
-<body>
+<style>
+    @media only screen and (min-width: 2200px) {
+        body {
+            height: 100vh;
+        }
+    }
+</style>
+
+<body class="bg-gradient-to-b from-purple-200 to-violet-400 bg-cover bg-no-repeat">
 
     <?php
     $condir = "/components/navbar.php";
     include($_SERVER['DOCUMENT_ROOT'] . $condir);
     ?>
 
-    <div class="bg-gradient-to-b from-purple-200 to-violet-400 bg-cover bg-no-repeat p-5 h-screen">
+    <div class="p-5">
         <section class="mx-auto w-[1536px] max-w-[95%] p-2 mt-28 mb-10">
             <form action="" method="post" enctype="multipart/form-data" class="p-1">
                 <div class="my-6 flex w-full justify-center items-center">

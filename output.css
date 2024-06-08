@@ -944,16 +944,28 @@ video {
   height: 550px !important;
 }
 
-.h-auto {
-  height: auto !important;
-}
-
 .h-full {
   height: 100% !important;
 }
 
 .h-screen {
   height: 100vh !important;
+}
+
+.h-auto {
+  height: auto !important;
+}
+
+.h-\[110vh\] {
+  height: 110vh !important;
+}
+
+.h-\[400vh\] {
+  height: 400vh !important;
+}
+
+.max-h-\[100\%\] {
+  max-height: 100% !important;
 }
 
 .w-12 {

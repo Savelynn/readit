@@ -86,18 +86,6 @@ include($_SERVER['DOCUMENT_ROOT'] . $condir);
 
     <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
     <script>
-        document.querySelectorAll('input[type="checkbox"][name="category[]"]').forEach(checkbox => {
-            checkbox.addEventListener('change', function() {
-                const label = this.parentElement;
-                if (this.checked) {
-                    label.style.border = '2px solid cyan';
-                } else {
-                    label.style.border = '2px solid white';
-                }
-            });
-        });
-    </script>
-    <script>
         tinymce.init({
             selector: 'textarea',
             plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount linkchecker',

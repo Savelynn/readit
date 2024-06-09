@@ -19,3 +19,14 @@ dropArea.addEventListener("drop", function(e) {
     inputFile.files = e.dataTransfer.files;
     uploadImage();
 })
+
+document.querySelectorAll('input[type="checkbox"][name="category[]"]').forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+        const label = this.parentElement;
+        if (this.checked) {
+            label.style.border = '2px solid cyan';
+        } else {
+            label.style.border = '2px solid white';
+        }
+    });
+});

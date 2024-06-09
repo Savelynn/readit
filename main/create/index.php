@@ -4,6 +4,10 @@ if (!isset($_SESSION['id'])) {
     header("Location: /");
     exit();
 }
+
+$condir = "/conn/connect.php";
+include($_SERVER['DOCUMENT_ROOT'] . $condir);
+
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +22,10 @@ if (!isset($_SESSION['id'])) {
 </head>
 
 <style>
+    .category {
+        border: 2px solid white;
+    }
+
     @media only screen and (min-width: 2200px) {
         body {
             height: 100vh;
@@ -32,6 +40,12 @@ if (!isset($_SESSION['id'])) {
     include($_SERVER['DOCUMENT_ROOT'] . $condir);
     ?>
 
+    <?php
+
+    $rawKategory = mysqli_query($connect, "SELECT * FROM kategori");
+    $kategori = mysqli_fetch_all($rawKategory, MYSQLI_ASSOC);
+
+    ?>
     <div class="p-5">
         <section class="mx-auto w-[1536px] max-w-[95%] p-2 mt-28 mb-10">
             <form action="" method="post" enctype="multipart/form-data" class="p-1">
@@ -49,7 +63,15 @@ if (!isset($_SESSION['id'])) {
                     <input type="text" name="title" id="title" class="py-4 px-4 bg-white rounded-t-md w-full text-xl font-bold focus:outline-none border-solid border-gray-200 border-2" placeholder="Input title" required>
                 </div>
                 <div class="mb-6 -mt-2">
-                    <textarea name="content" id="" placeholder="Write Content Here!" required></textarea>
+                    <textarea name="content" id="" placeholder="Write Content Here!"></textarea>
+                </div>
+                <div class="mb-6 flex-row flex-wrap p-3">
+                    <?php foreach ($kategori as $cat) : ?>
+                        <label for="<?php echo $cat['id']; ?>" class="rounded-full px-4 py-1 text-center mx-1 mb-3 bg-white category">
+                            <?php echo $cat['kategori']; ?>
+                            <input type="checkbox" name="category[]" id="<?php echo $cat['id']; ?>" value="<?php echo $cat['id']; ?>" hidden>
+                        </label>
+                    <?php endforeach; ?>
                 </div>
                 <div class="w-full flex justify-end mt-2">
                     <button onclick="window.location.href = ''" class="px-4 py-[6px] bg-rose-600 ms-3 rounded-full w-[100px] text-white font-medium text-center">Reset</button>
@@ -63,6 +85,18 @@ if (!isset($_SESSION['id'])) {
     <script src="https://cdn.tiny.cloud/1/spd80pirgpeyo3i3qj7xz57wumobzu0be6t66vjlrsqwi364/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 
     <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
+    <script>
+        document.querySelectorAll('input[type="checkbox"][name="category[]"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const label = this.parentElement;
+                if (this.checked) {
+                    label.style.border = '2px solid cyan';
+                } else {
+                    label.style.border = '2px solid white';
+                }
+            });
+        });
+    </script>
     <script>
         tinymce.init({
             selector: 'textarea',
@@ -82,16 +116,58 @@ if (!isset($_SESSION['id'])) {
         });
     </script>
     <script src="script.js"></script>
+    <?php
+
+    if (isset($_POST['up'])) {
+
+        $title = $_POST['title'];
+        $content = $_POST['content'];
+        $authorID = $_SESSION['id'];
+        $username = $_SESSION['username'];
+
+        if (isset($_POST['category'])) {
+            $category = implode(',', $_POST['category']);
+        } else {
+            $category = '';
+        }
+
+        $imgAble = false;
+        if ($_FILES['cover']['name'] != NULL) {
+            $fileName = $_FILES['cover']['name'];
+            $tmp_file = $_FILES['cover']['tmp_name'];
+            if (getimagesize($tmp_file) !== false) {
+                $newName = $title . "_" . $username . $fileName;
+                $path = $_SERVER['DOCUMENT_ROOT'] . "/image/cover/" . $newName;
+                $imgAble = true;
+            } else {
+                echo "<script>
+                    alert('The uploaded file is not a valid image.');
+                    window.location.href = '';
+                    </script>";
+                exit();
+            }
+        } else {
+            $newName = "no_cover.png";
+        }
+
+        $postContentQuery = "INSERT INTO karya (id_kat, title, content, cover, author_id) VALUES ('$category', '$title', '$content', '$newName', $authorID)";
+        if (mysqli_query($connect, $postContentQuery)) {
+            if ($imgAble) {
+                move_uploaded_file($tmp_file, $path);
+            }
+            echo "<script>
+                alert('Content successfully added')
+                window.location.href = '/main';
+                </script>";
+        } else {
+            echo "<script>
+                alert('Failed To Upload Content!');
+                window.location.href = '';
+                </script>";
+        }
+    }
+    $connect->close();
+    ?>
 </body>
 
 </html>
-
-<?php
-
-if (isset($_POST['up'])) {
-    $title = $_POST['title'];
-    $content = $_POST['content'];
-    $date = date("Y-m-d H:i:s");
-}
-
-?>

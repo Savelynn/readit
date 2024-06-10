@@ -29,15 +29,15 @@ $user = $result->fetch_assoc();
 <body class="w-full h-screen bg-slate-900">
 
     <?php
-    $condir = "/components/navbar.php";
-    include($_SERVER['DOCUMENT_ROOT'] . $condir);
+    $navdir = "/components/navbar.php";
+    include($_SERVER['DOCUMENT_ROOT'] . $navdir);
     ?>
 
     <div class="absolute w-[448px] max-w-[90%] bg-white p-6 rounded-lg shadow-lg left-1/2 -translate-x-1/2 mt-28">
         <h2 class="text-2xl font-bold mb-4"><?php echo $user['username']; ?> Profile</h2>
         <form action="" method="post">
             <div class="flex justify-center mb-4">
-                <img class="w-24 h-24 rounded-full rou object-cover" src="https://placehold.jp/150x150.png" alt="Profile Picture">
+                <img class="w-24 h-24 rounded-full object-cover" src="https://placehold.jp/150x150.png" alt="Profile Picture">
             </div>
             <div class="text-center p-2">
                 <p class="font-semibold">Role : <?php echo $user['role']; ?></p>

@@ -62,7 +62,7 @@ require($_SERVER['DOCUMENT_ROOT'] . $condir);
             mysqli_query($connect, $SQLaddViewer);
             ?>
 
-            <title>Reading <?php echo $content[0]['title'] ?></title>
+            <title>Reading <?php echo $content[0]['title'] ?> - Readit</title>
 
             <section class="w-[75%] xl:w-[70%] mx-auto py-10 px-5 bg-color-primary h-auto mt-28 rounded-2px">
                 <div class="text-center">

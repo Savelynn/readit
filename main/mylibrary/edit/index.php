@@ -60,7 +60,7 @@ include($_SERVER['DOCUMENT_ROOT'] . $condir);
             }
 
         ?>
-            <title>Editing <?php echo $content['title'] ?></title>
+            <title>Editing <?php echo $content['title'] ?> - Readit</title>
             <?php
 
             $rawKategory = mysqli_query($connect, "SELECT * FROM kategori");

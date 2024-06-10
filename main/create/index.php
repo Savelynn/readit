@@ -35,7 +35,7 @@ include($_SERVER['DOCUMENT_ROOT'] . $condir);
     }
 </style>
 
-<body class="bg-gradient-to-b from-purple-200 to-violet-400 bg-cover bg-no-repeat">
+<body class="bg-gradient-to-b from-cyan-300 to-blue-500 bg-cover bg-no-repeat">
 
     <?php
     $navdir = "/components/navbar.php";
@@ -67,7 +67,7 @@ include($_SERVER['DOCUMENT_ROOT'] . $condir);
                 <div class="mb-6 -mt-2">
                     <textarea name="content" id="" placeholder="Write Content Here!"></textarea>
                 </div>
-                <div class="flex-row flex-wrap p-3 border-solid border-violet-700 rounded-2xl border-t-[1px] border-s-[1px] border-e-[1px] rounded-br-none">
+                <div class="flex-row flex-wrap p-3 border-solid border-white rounded-2xl border-t-[1px] border-s-[1px] border-e-[1px] rounded-br-[7px]">
                     <?php foreach ($kategori as $cat) : ?>
                         <div class="inline-block my-5">
                             <label for="<?php echo $cat['id']; ?>" class="rounded-full px-4 py-1 text-center mx-1 mb-3 bg-white category">

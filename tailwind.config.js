@@ -4,6 +4,9 @@ module.exports = {
   content: ["./**/*.{html,js,php}"],
   theme: {
     extend: {
+      screens: {
+        smallPhone: '400px'
+      },
       colors: {
         color: {
           primary: '#F2F2F2',

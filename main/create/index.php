@@ -67,14 +67,17 @@ include($_SERVER['DOCUMENT_ROOT'] . $condir);
                 <div class="mb-6 -mt-2">
                     <textarea name="content" id="" placeholder="Write Content Here!"></textarea>
                 </div>
-                <div class="mb-6 flex-row flex-wrap p-3">
+                <div class="flex-row flex-wrap p-3 border-solid border-violet-700 rounded-2xl border-t-[1px] border-s-[1px] border-e-[1px] rounded-br-none">
                     <?php foreach ($kategori as $cat) : ?>
-                        <label for="<?php echo $cat['id']; ?>" class="rounded-full px-4 py-1 text-center mx-1 mb-3 bg-white category">
-                            <?php echo $cat['kategori']; ?>
-                            <input type="checkbox" name="category[]" id="<?php echo $cat['id']; ?>" value="<?php echo $cat['id']; ?>" hidden>
-                        </label>
+                        <div class="inline-block my-5">
+                            <label for="<?php echo $cat['id']; ?>" class="rounded-full px-4 py-1 text-center mx-1 mb-3 bg-white category">
+                                <?php echo $cat['kategori']; ?>
+                                <input type="checkbox" name="category[]" id="<?php echo $cat['id']; ?>" value="<?php echo $cat['id']; ?>" hidden>
+                            </label>
+                        </div>
                     <?php endforeach; ?>
                 </div>
+                <p class="-translate-y-[18px] translate-x-[18px] text-white font-semibold text-xl">Genre</p>
                 <div class="w-full flex justify-end mt-2">
                     <button onclick="window.location.href = ''" class="px-4 py-[6px] bg-rose-600 ms-3 rounded-full w-[100px] text-white font-medium text-center">Reset</button>
                     <button type="submit" name="up" class="px-4 py-[6px] bg-indigo-600 ms-3 rounded-full w-[100px] text-white font-medium text-center">Submit</button>
@@ -84,7 +87,7 @@ include($_SERVER['DOCUMENT_ROOT'] . $condir);
     </div>
 
     <!-- Place the first <script> tag in your HTML's <head> -->
-    <script src="https://cdn.tiny.cloud/1/spd80pirgpeyo3i3qj7xz57wumobzu0be6t66vjlrsqwi364/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/6baj1zqurjx38kd05gsw5wh8ewepk2cfcjoq2bxib4a8hzke/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 
     <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
     <script>

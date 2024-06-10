@@ -1,11 +1,11 @@
-<nav class="p-2 flex md:w-[68%] w-full justify-between items-center bg-gray-200 md:left-1/2 md:-translate-x-1/2 fixed md:rounded-full z-50 md:top-4 top-0 drop-shadow-2xl">
-    <div class="lg:mx-4 mx-1 p-1">
+<nav class="p-2 flex md:w-[68%] w-full justify-between items-center bg-gray-200 md:left-1/2 md:-translate-x-1/2 sticky md:fixed md:rounded-full z-50 md:top-4 top-0 drop-shadow-2xl">
+    <div class="lg:mx-4 mx-1 p-1 flex flex-wrap">
         <a href="/main" class="p-2 text-lg text-black lg:mx-5 mx-0 text-center"><i class="ph ph-house"></i> Home</a>
         <a href="" class="p-2 text-lg text-black lg:mx-5 mx-0"><i class="ph ph-trend-up"></i> Trending</a>
         <a href="" class="p-2 text-lg text-black lg:mx-5 mx-0"><i class="ph ph-network"></i> Category</a>
         <a href="/main/create" class="p-2 text-lg text-black lg:mx-5 mx-0"><i class="ph ph-pen"></i> Create</a>
     </div>
-    <div class="relative md:inline-block text-left hidden">
+    <div class="relative text-left">
         <div class="rounded-[50%] overflow-hidden h-12 w-12 relative border border-black flex justify-center content-center     ">
             <button type="button" class="" onclick="menuDropdown()" id="menu-button" aria-expanded="true" aria-haspopup="true">
                 <img class="w-full h-full object-cover object-center" src="https://placehold.jp/150x150.png" alt="Profile Picture">
